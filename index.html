@@ -6,64 +6,74 @@
     <title>DomvrosHub</title>
     <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@900&family=Comfortaa:wght@600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
         rel="stylesheet"
     />
     <style>
         /* Base resets */
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
         body {
-            margin: 0;
-            padding: 20px;
-            font-family: 'Comfortaa', sans-serif;
-            background-color: #008080;  /* Teal background */
-            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;  /* Light gray background */
+            color: #333;                /* Dark text for readability */
             text-align: center;
+            padding: 20px;
         }
         h1 {
-            font-family: 'Fira Sans', sans-serif;
-            font-weight: 900;
+            font-weight: 700;
             font-size: 2.5em;
             margin-bottom: 0.2em;
+            color: #004d99;  /* Dark blue accent */
         }
         h2 {
-            font-family: 'Fira Sans', sans-serif;
-            font-weight: 900;
+            font-weight: 700;
             font-size: 1.5em;
             margin-top: 0;
             margin-bottom: 0.5em;
+            color: #004d99;  /* Dark blue accent */
         }
 
         /* Credit box */
         .box {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px 20px;
-            border-radius: 10px;
+            background-color: #f5f5f5;   /* same as page background */
+            padding: 25px 35px;          /* larger padding */
+            border-radius: 8px;
             display: inline-block;
             margin: 20px auto;
-            font-family: 'Fira Sans', sans-serif;
-            font-weight: 900;
-            font-size: 1.1em;
-            line-height: 1.2;
-            color: #fff;
+        }
+        .credit-line {
+            color: #004d99;              /* dark blue text */
+            font-weight: 700;
+            font-size: 1em;
+            line-height: 1.4;
+            text-align: center;
         }
 
         /* Contact / Social Media */
         .contact {
             margin-top: 20px;
             line-height: 1.3;
-            font-family: 'Fira Sans', sans-serif;
-            font-weight: 900;
+            font-weight: 700;
             font-size: 1.1em;
-            color: #fff;
+            color: #333;
         }
         .contact a {
-            text-decoration: none;
-            color: #fff;
             display: inline-block;
             margin: 5px 0;
+            padding: 5px 10px;
+            border: 2px solid #004d99;    /* Blue border */
+            border-radius: 5px;
+            color: #004d99;               /* Blue text */
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s;
+        }
+        .contact a:hover {
+            background: #004d99;          /* Blue background on hover */
+            color: #fff;
         }
 
         /* Container for 8 buttons */
@@ -73,6 +83,20 @@
             height: 500px;
             margin: 40px auto;
         }
+        /* Center image in the circle */
+        .center-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            border: 3px solid #004d99;
+            object-fit: cover;
+            object-position: top center;   /* keep top portion fixed */
+            background-color: #ffffff;
+        }
         .circle-button {
             position: absolute;
             top: 50%;
@@ -81,10 +105,9 @@
             height: 120px;
             border: none;
             border-radius: 50%;
-            background: #FF6347; /* Tomato */
+            background: #004d99;          /* Dark blue */
             color: #fff;
-            font-family: 'Comfortaa', sans-serif;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.85em;
             text-align: center;
             display: flex;
@@ -97,7 +120,7 @@
         }
         .circle-button:hover {
             opacity: 0.8;
-            background: #FF4500; /* Darker tomato on hover */
+            background: #003366;          /* Even darker blue on hover */
         }
         /* Position each of the 8 buttons evenly around the larger circle */
         .circle-button:nth-of-type(1) {
@@ -133,20 +156,20 @@
             margin-top: 20px;
         }
         .under-buttons button {
-            background: #FF6347; /* Tomato */
-            color: #fff;
-            border: none;
+            background: #ffffff;          /* White background */
+            color: #004d99;               /* Dark blue text */
+            border: 2px solid #004d99;
             padding: 10px 20px;
             border-radius: 5px;
-            font-family: 'Comfortaa', sans-serif;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             transition: background 0.3s, opacity 0.3s;
             white-space: nowrap;
         }
         .under-buttons button:hover {
-            opacity: 0.8;
-            background: #FF4500; /* Darker tomato */
+            background: #004d99;          /* Dark blue on hover */
+            color: #fff;
+            opacity: 0.9;
         }
 
         /* Modal overlay */
@@ -162,7 +185,7 @@
             background-color: rgba(0, 0, 0, 0.5);
         }
         .modal-content {
-            background: #fff;
+            background: #ffffff;
             margin: 8% auto;
             padding: 20px;
             border-radius: 10px;
@@ -171,6 +194,7 @@
             text-align: left;
             position: relative;
             color: #333;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
         .close {
             color: #aaa;
@@ -187,7 +211,7 @@
         .modal-links a {
             display: block;
             margin: 8px 0;
-            color: #007BFF;
+            color: #004d99;            /* Dark blue links */
             text-decoration: none;
         }
         .modal-links a:hover {
@@ -198,24 +222,29 @@
 <body>
     <!-- Page Title -->
     <h1>DomvrosHub</h1>
-    <h2>Educational Material/Εκπαιδευτκό Υλικό</h2>
+    <h2>Educational Material / Εκπαιδευτικό Υλικό</h2>
 
     <!-- Credit Line -->
     <div class="box">
-        Panagiotis Domvros 2025 (CC BY-NC)<br />
-        English Teacher – Teacher Trainer<br />
-        Principal of 1st Middle School of Pylea
+        <p class="credit-line">
+            Παναγιώτης Δόμβρος © 2025 (CC BY-NC)<br />
+            English and Drama Teacher &amp; Teacher Trainer<br />
+            Διευθυντής 1ου Γυμνασίου Πυλαίας
+        </p>
     </div>
 
     <!-- Contact / Social Media -->
     <div class="contact">
         <p>📧 <a href="mailto:domvroshub@gmail.com">domvroshub@gmail.com</a></p>
-        <p>📘 <a href="https://www.facebook.com/panayotis.domvros/" target="_blank">Facebook</a></p>
-        <p>📸 <a href="https://www.instagram.com/p_domvros/" target="_blank">Instagram</a></p>
+        <p>📘 <a href="https://www.facebook.com/panayotis.domvros/" target="_blank" rel="noopener noreferrer">Facebook</a></p>
+        <p>📸 <a href="https://www.instagram.com/p_domvros/" target="_blank" rel="noopener noreferrer">Instagram</a></p>
     </div>
 
     <!-- Circle of 8 Buttons -->
     <div class="circle-container">
+        <!-- Center image inside circle -->
+        <img src="teacher.png" alt="Teacher Avatar" class="center-image" />
+
         <button class="circle-button" onclick="openModal('historyModal')">
             Υλικό για το<br>Γυμνάσιο
         </button>
@@ -245,7 +274,7 @@
     <!-- New Buttons Directly Below the Circle -->
     <div class="under-buttons">
         <button onclick="openModal('visualModal')">Οπτικοποιήσεις Γυμνασίου</button>
-        <button onclick="openModal('youtubeModal')">You Tube</button>
+        <button onclick="openModal('youtubeModal')">YouTube</button>
         <button onclick="openModal('leftEscapeModal')">Escape Rooms</button>
         <button onclick="openModal('leftMiscModal')">Διάφορα</button>
     </div>
@@ -258,7 +287,7 @@
             <span class="close" onclick="closeModal('historyModal')">&times;</span>
             <h3>Υλικό για το Γυμνάσιο</h3>
             <div class="modal-links">
-                <a href="https://pdomvros.github.io/complete-works2/" target="_blank">
+                <a href="https://pdomvros.github.io/complete-works2/" target="_blank" rel="noopener noreferrer">
                     Εφαρμογές για Διαδραστικούς Πίνακες και άλλο Εκπαιδευτικό Υλικό
                 </a>
             </div>
@@ -271,8 +300,8 @@
             <span class="close" onclick="closeModal('byzantineModal')">&times;</span>
             <h3>MUN Preparation</h3>
             <div class="modal-links">
-                <a href="https://panagiotis-domvros.github.io/position-paper/" target="_blank">MUN Position Paper Builder</a>
-                <a href="https://panagiotis-domvros.github.io/draft-resolution/" target="_blank">MUN Draft Resolution Builder</a>
+                <a href="https://panagiotis-domvros.github.io/position-paper/" target="_blank" rel="noopener noreferrer">MUN Position Paper Builder</a>
+                <a href="https://panagiotis-domvros.github.io/draft-resolution/" target="_blank" rel="noopener noreferrer">MUN Draft Resolution Builder</a>
             </div>
         </div>
     </div>
@@ -283,22 +312,22 @@
             <span class="close" onclick="closeModal('literatureModal')">&times;</span>
             <h3>EFL Material</h3>
             <div class="modal-links">
-                <a href="https://pdomvros-edu.github.io/word-weaver//" target="_blank">
+                <a href="https://pdomvros-edu.github.io/word-weaver//" target="_blank" rel="noopener noreferrer">
                     The Word Weaver
                 </a>
-                <a href="https://pdomvros-edu.github.io/word-weaver2//" target="_blank">
+                <a href="https://pdomvros-edu.github.io/word-weaver2//" target="_blank" rel="noopener noreferrer">
                     The Word Weaver 2
                 </a>
-                <a href="https://pdomvros-edu.github.io/vocab-vortex1/" target="_blank">
+                <a href="https://pdomvros-edu.github.io/vocab-vortex1/" target="_blank" rel="noopener noreferrer">
                     The Vocab Vortex: Spin Words, Conquer C2!
                 </a>
-                <a href="https://pdomvros-edu.github.io/phrase-forge1/" target="_blank">
+                <a href="https://pdomvros-edu.github.io/phrase-forge1/" target="_blank" rel="noopener noreferrer">
                     Phrase Forge 1
                 </a>
-                <a href="https://pdomvros-edu.github.io/phrase-forge2/" target="_blank">
+                <a href="https://pdomvros-edu.github.io/phrase-forge2/" target="_blank" rel="noopener noreferrer">
                     Phrase Forge 2
                 </a>
-                <a href="https://pdomvros-edu.github.io/phrase-forge3/" target="_blank">
+                <a href="https://pdomvros-edu.github.io/phrase-forge3/" target="_blank" rel="noopener noreferrer">
                     Phrase Forge 3
                 </a>
             </div>
@@ -311,10 +340,10 @@
             <span class="close" onclick="closeModal('languageModal')">&times;</span>
             <h3>Επιμόρφωση στις Τ.Π.Ε</h3>
             <div class="modal-links">
-                <a href="https://domvrosepimorfosi.github.io/B2-2025/" target="_blank">
+                <a href="https://domvrosepimorfosi.github.io/B2-2025/" target="_blank" rel="noopener noreferrer">
                     Μαθήματα ψηφιακής παιδείας
                 </a>
-                <a href="https://domvrosepimorfosi.github.io/B2-2025/" target="_blank">
+                <a href="https://domvrosepimorfosi.github.io/B2-2025/" target="_blank" rel="noopener noreferrer">
                     Επιμόρφωση στις Τ.Π.Ε (3η Περίοδος – 2025)
                 </a>
             </div>
@@ -327,7 +356,7 @@
             <span class="close" onclick="closeModal('modernLiteratureModal')">&times;</span>
             <h3>Διδακτικά Σενάρια</h3>
             <div class="modal-links">
-                <a href="https://domvrosepimorfosi.github.io/four-recources//" target="_blank">
+                <a href="https://domvrosepimorfosi.github.io/four-recources//" target="_blank" rel="noopener noreferrer">
                     Σενάριο 1: Το Μοντέλο των Τεσσάρων Πόρων (Luke & Freebody, 1999)
                 </a>
             </div>
@@ -340,29 +369,29 @@
             <span class="close" onclick="closeModal('modernLanguageModal')">&times;</span>
             <h3>Ιστορία Α</h3>
             <div class="modal-links">
-                <a href="https://panagiotis-domvros.github.io/back-to-the-future/" target="_blank">Σενάρια του Μέλλοντος</a>
-                <a href="https://pdomvros.github.io/epistoles-apo-to-parelthon/" target="_blank">Γράμματα από το Παρελθόν</a>
-                <a href="https://pdomvros.github.io/past-letters/" target="_blank">Γράμματα από το Παρελθόν (με τις ιστορίες των πρωταγωνιστών)</a>
-                <a href="https://pdomvros.github.io/Valentine-Ancient-Greece/" target="_blank">Ο Άγιος Βαλεντίνος ταξιδεύει στην Αρχαιότητα</a>
-                <a href="https://pdomvros.github.io/athens1/" target="_blank">Αθηναϊκό Κράτος (Επανάληψη 1)</a>
-                <a href="https://pdomvros.github.io/athens2/" target="_blank">Αθηναϊκό Κράτος (Επανάληψη 2)</a>
-                <a href="https://pdomvros.github.io/athenian-race/" target="_blank">Αθηναϊκό Κράτος (Επανάληψη 3)</a>
-                <a href="https://pdomvros.github.io/ancient-riddles/" target="_blank">Παιχνίδι Γρίφων: Αρχαία Αθήνα</a>
-                <a href="https://pdomvros.github.io/golden-seal-mystery/" target="_blank">Το Μυστήριο της Χρυσής Σφραγίδας</a>
-                <a href="https://pdomvros.github.io/golden-seal-race/" target="_blank">Αγώνας Δρόμου: Το Μυστήριο της Χρυσής Σφραγίδας</a>
-                <a href="https://pdomvros.github.io/to-marry-or-not-to-marry/" target="_blank">Να το πάρεις το κορίτσι (Μελέτη Πηγών για το Αθηναϊκό Κράτος)</a>
-                <a href="https://pdomvros.github.io/peloponnesian-war/" target="_blank">Πελοποννησιακός Πόλεμος (Παρουσίαση)</a>
-                <a href="https://pdomvros.github.io/Peloponnesian-War-Game-1/" target="_blank">Η Μάχη των Στρατηγών (Πελοποννησιακός Πόλεμος)</a>
-                <a href="https://pdomvros.github.io/plague-forensics/" target="_blank">Ο Λοιμός της Αρχαίας Αθήνας (Ancient Forensics)</a>
-                <a href="https://pdomvros.github.io/sparta-rules/" target="_blank">Η Ηγεμονία της Σπάρτης (σε αμφισβήτηση)</a>
-                <a href="https://pdomvros.github.io/macedonia-state/" target="_blank">Το Κράτος της Μακεδονίας</a>
-                <a href="https://pdomvros.github.io/alexander-wars/" target="_blank">Η κατάκτηση της Ανατολής από τον Αλέξανδρο</a>
-                <a href="https://pdomvros.github.io/alexander-chronology/" target="_blank">Χρονολόγιο του Αλεξάνδρου</a>
-                <a href="https://pdomvros.github.io/alexander-work/" target="_blank">Το Έργο του Αλεξάνδρου</a>
-                <a href="https://pdomvros.github.io/classical-era/" target="_blank">Η Κλασική Εποχή</a>
-                <a href="https://pdomvros.github.io/classical-era-quiz/" target="_blank">Quiz στην Κλασική Εποχή</a>
-                <a href="https://pdomvros.github.io/history-a-rev/" target="_blank">Επανάληψη Ιστορίας Α' Γυμνασίου</a>
-                <a href="https://pdomvros.github.io/his-a-rev1/" target="_blank">Επανάληψη Ιστορίας Α' Γυμνασίου 2</a>
+                <a href="https://panagiotis-domvros.github.io/back-to-the-future/" target="_blank" rel="noopener noreferrer">Σενάρια του Μέλλοντος</a>
+                <a href="https://pdomvros.github.io/epistoles-apo-to-parelthon/" target="_blank" rel="noopener noreferrer">Γράμματα από το Παρελθόν</a>
+                <a href="https://pdomvros.github.io/past-letters/" target="_blank" rel="noopener noreferrer">Γράμματα από το Παρελθόν (με τις ιστορίες των πρωταγωνιστών)</a>
+                <a href="https://pdomvros.github.io/Valentine-Ancient-Greece/" target="_blank" rel="noopener noreferrer">Ο Άγιος Βαλεντίνος ταξιδεύει στην Αρχαιότητα</a>
+                <a href="https://pdomvros.github.io/athens1/" target="_blank" rel="noopener noreferrer">Αθηναϊκό Κράτος (Επανάληψη 1)</a>
+                <a href="https://pdomvros.github.io/athens2/" target="_blank" rel="noopener noreferrer">Αθηναϊκό Κράτος (Επανάληψη 2)</a>
+                <a href="https://pdomvros.github.io/athenian-race/" target="_blank" rel="noopener noreferrer">Αθηναϊκό Κράτος (Επανάληψη 3)</a>
+                <a href="https://pdomvros.github.io/ancient-riddles/" target="_blank" rel="noopener noreferrer">Παιχνίδι Γρίφων: Αρχαία Αθήνα</a>
+                <a href="https://pdomvros.github.io/golden-seal-mystery/" target="_blank" rel="noopener noreferrer">Το Μυστήριο της Χρυσής Σφραγίδας</a>
+                <a href="https://pdomvros.github.io/golden-seal-race/" target="_blank" rel="noopener noreferrer">Αγώνας Δρόμου: Το Μυστήριο της Χρυσής Σφραγίδας</a>
+                <a href="https://pdomvros.github.io/to-marry-or-not-to-marry/" target="_blank" rel="noopener noreferrer">Να το πάρεις το κορίτσι (Μελέτη Πηγών για το Αθηναϊκό Κράτος)</a>
+                <a href="https://pdomvros.github.io/peloponnesian-war/" target="_blank" rel="noopener noreferrer">Πελοποννησιακός Πόλεμος (Παρουσίαση)</a>
+                <a href="https://pdomvros.github.io/Peloponnesian-War-Game-1/" target="_blank" rel="noopener noreferrer">Η Μάχη των Στρατηγών (Πελοποννησιακός Πόλεμος)</a>
+                <a href="https://pdomvros.github.io/plague-forensics/" target="_blank" rel="noopener noreferrer">Ο Λοιμός της Αρχαίας Αθήνας (Ancient Forensics)</a>
+                <a href="https://pdomvros.github.io/sparta-rules/" target="_blank" rel="noopener noreferrer">Η Ηγεμονία της Σπάρτης (σε αμφισβήτηση)</a>
+                <a href="https://pdomvros.github.io/macedonia-state/" target="_blank" rel="noopener noreferrer">Το Κράτος της Μακεδονίας</a>
+                <a href="https://pdomvros.github.io/alexander-wars/" target="_blank" rel="noopener noreferrer">Η κατάκτηση της Ανατολής από τον Αλέξανδρο</a>
+                <a href="https://pdomvros.github.io/alexander-chronology/" target="_blank" rel="noopener noreferrer">Χρονολόγιο του Αλεξάνδρου</a>
+                <a href="https://pdomvros.github.io/alexander-work/" target="_blank" rel="noopener noreferrer">Το Έργο του Αλεξάνδρου</a>
+                <a href="https://pdomvros.github.io/classical-era/" target="_blank" rel="noopener noreferrer">Η Κλασική Εποχή</a>
+                <a href="https://pdomvros.github.io/classical-era-quiz/" target="_blank" rel="noopener noreferrer">Quiz στην Κλασική Εποχή</a>
+                <a href="https://pdomvros.github.io/history-a-rev/" target="_blank" rel="noopener noreferrer">Επανάληψη Ιστορίας Α' Γυμνασίου</a>
+                <a href="https://pdomvros.github.io/his-a-rev1/" target="_blank" rel="noopener noreferrer">Επανάληψη Ιστορίας Α' Γυμνασίου 2</a>
             </div>
         </div>
     </div>
@@ -373,7 +402,7 @@
             <span class="close" onclick="closeModal('englishModal')">&times;</span>
             <h3>Ιστορία Β</h3>
             <div class="modal-links">
-                <a href="https://pdomvros.github.io/history-b-rev-t-f/" target="_blank">Επανάληψη Ιστορίας Β Γυμνασίου</a>
+                <a href="https://pdomvros.github.io/history-b-rev-t-f/" target="_blank" rel="noopener noreferrer">Επανάληψη Ιστορίας Β Γυμνασίου</a>
             </div>
         </div>
     </div>
@@ -384,13 +413,13 @@
             <span class="close" onclick="closeModal('miscModal')">&times;</span>
             <h3>Ιστορία Γ</h3>
             <div class="modal-links">
-                <a href="............................="_blank">
+                <a href="#" target="_blank" rel="noopener noreferrer">
                     Κεφάλαιο 1: Σύγχρονη Εποχή
                 </a>
-                <a href="https://................/" target="_blank">
+                <a href="#" target="_blank" rel="noopener noreferrer">
                     Κεφάλαιο 2: Παγκόσμιοι Πόλεμοι
                 </a>
-                <a href="https://............../" target="_blank">
+                <a href="#" target="_blank" rel="noopener noreferrer">
                     Κεφάλαιο 3: Μεταπολεμική Περίοδος
                 </a>
             </div>
@@ -403,23 +432,23 @@
     <div id="visualModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('visualModal')">&times;</span>
-            <h3>Τίτλος</h3>
+            <h3>Οπτικοποιήσεις Γυμνασίου</h3>
             <div class="modal-links">
-                <a href="https://eclass11.sch.gr/modules/video/?course=1901051484/" target="_blank">
+                <a href="https://eclass11.sch.gr/modules/video/?course=1901051484/" target="_blank" rel="noopener noreferrer">
                    Οπτικοποιήσεις Γυμνασίου
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- You Tube -->
+    <!-- YouTube -->
     <div id="youtubeModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('youtubeModal')">&times;</span>
-            <h3>Τίτλος</h3>
+            <h3>YouTube</h3>
             <div class="modal-links">
-                <a href="https://www.youtube.com/channel/UCn0jq-LEikDRVDQHQi47eYw" target="_blank">
-                    You Tube
+                <a href="https://www.youtube.com/channel/UCn0jq-LEikDRVDQHQi47eYw" target="_blank" rel="noopener noreferrer">
+                    YouTube Channel
                 </a>
             </div>
         </div>
@@ -429,22 +458,22 @@
     <div id="leftEscapeModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('leftEscapeModal')">&times;</span>
-         <h3>Escape Rooms</h3>
-        <div class="modal-links">
-            <a href="https://docs.google.com/presentation/d/1EPFDaKxisv7sq3fjJoAXt1FF4um0X68I5c9LQxGlwCY/present?usp=sharing" target="_blank">Η Έξοδος του Μεσολογγίου</a>
-            <a href="https://docs.google.com/presentation/d/11pubC68l3wsZLsiw0q0G3je5bFue9TPqlWZQZN3b-p4/present?usp=sharing" target="_blank">Το Ναυάγιο της Περιστέρας</a>
-            <a href="https://docs.google.com/presentation/d/1HEeLthwJfA5SXdLML-XdNDIZdSlvbpAEeZS3shHYcRg/present?usp=sharing" target="_blank">Αρχαϊκή Εποχή: Τα γράμματα και οι τέχνες</a>
-            <a href="https://docs.google.com/presentation/d/1FycxBv3svixsQvO6xqVxpcMg19Vp7Qg33HGrLk7mQmk/present?usp=sharing" target="_blank">Ανακεφαλαίωση Ιστορίας Α' Γυμνασίου</a>
-            <a href="https://docs.google.com/presentation/d/1keIWPof0MVegUFy2dwA8OepQ3j2EkaolS7oxLQEOz0Q/present?usp=sharing" target="_blank">Έριδες για το ζήτημα των εικόνων</a>
-            <a href="https://docs.google.com/presentation/d/1_vXT4LL7ErorS9nIKmslEnaDi7JbbZtZ8uSdxIe59y4/edit?usp=sharing" target="_blank">Η Δίκη της Εικονομαχίας</a>
-            <a href="https://docs.google.com/presentation/d/159iIW5_HJZgOFGHJW58A-nnjGx-3pFMq8jsdpHmYqaU/present?usp=sharing" target="_blank">Αρχαία Ελληνική Γλώσσα 1</a>
-            <a href="https://docs.google.com/presentation/d/1TGlxMlZvhpfFL8HL2iHczd9_qc77Vhnl5eG36tS70Vk/present?usp=sharing" target="_blank">Ελληνική Γλώσσα 1</a>
-            <a href="https://docs.google.com/presentation/d/12gr7cc7GFafp02bikCDuKTMUPkJERD3tulBFordixv8/present?usp=sharing" target="_blank">First Aid Escape Room</a>
-            <a href="https://docs.google.com/presentation/d/1QAr01U8DAxTePxeFF1EBXFIUvNgoKLwDQ9X7Vefc9Q8/present?usp=sharing" target="_blank">Η Διάσωση του Ρωμαίου και της Ιουλιέτας (διαθεματικό)</a>
-            <a href="https://docs.google.com/presentation/d/1Mm3e7fPnmWna8tCp8sO9PK2iiv63neSH_zk6gcI36jg/present?usp=sharing" target="_blank">Η απόδραση των Χριστουγέννων</a>
+            <h3>Escape Rooms</h3>
+            <div class="modal-links">
+                <a href="https://docs.google.com/presentation/d/1EPFDaKxisv7sq3fjJoAXt1FF4um0X68I5c9LQxGlwCY/present?usp=sharing" target="_blank" rel="noopener noreferrer">Η Έξοδος του Μεσολογγίου</a>
+                <a href="https://docs.google.com/presentation/d/11pubC68l3wsZLsiw0q0G3je5bFue9TPqlWZQZN3b-p4/present?usp=sharing" target="_blank" rel="noopener noreferrer">Το Ναυάγιο της Περιστέρας</a>
+                <a href="https://docs.google.com/presentation/d/1HEeLthwJfA5SXdLML-XdNDIZdSlvbpAEeZS3shHYcRg/present?usp=sharing" target="_blank" rel="noopener noreferrer">Αρχαϊκή Εποχή: Τα γράμματα και οι τέχνες</a>
+                <a href="https://docs.google.com/presentation/d/1FycxBv3svixsQvO6xqVxpcMg19Vp7Qg33HGrLk7mQmk/present?usp=sharing" target="_blank" rel="noopener noreferrer">Ανακεφαλαίωση Ιστορίας Α' Γυμνασίου</a>
+                <a href="https://docs.google.com/presentation/d/1keIWPof0MVegUFy2dwA8OepQ3j2EkaolS7oxLQEOz0Q/present?usp=sharing" target="_blank" rel="noopener noreferrer">Έριδες για το ζήτημα των εικόνων</a>
+                <a href="https://docs.google.com/presentation/d/1_vXT4LL7ErorS9nIKmslEnaDi7JbbZtZ8uSdxIe59y4/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Η Δίκη της Εικονομαχίας</a>
+                <a href="https://docs.google.com/presentation/d/159iIW5_HJZgOFGHJW58A-nnjGx-3pFMq8jsdpHmYqaU/present?usp=sharing" target="_blank" rel="noopener noreferrer">Αρχαία Ελληνική Γλώσσα 1</a>
+                <a href="https://docs.google.com/presentation/d/1TGlxMlZvhpfFL8HL2iHczd9_qc77Vhnl5eG36tS70Vk/present?usp=sharing" target="_blank" rel="noopener noreferrer">Ελληνική Γλώσσα 1</a>
+                <a href="https://docs.google.com/presentation/d/12gr7cc7GFafp02bikCDuKTMUPkJERD3tulBFordixv8/present?usp=sharing" target="_blank" rel="noopener noreferrer">First Aid Escape Room</a>
+                <a href="https://docs.google.com/presentation/d/1QAr01U8DAxTePxeFF1EBXFIUvNgoKLwDQ9X7Vefc9Q8/present?usp=sharing" target="_blank" rel="noopener noreferrer">Η Διάσωση του Ρωμαίου και της Ιουλιέτας (διαθεματικό)</a>
+                <a href="https://docs.google.com/presentation/d/1Mm3e7fPnmWna8tCp8sO9PK2iiv63neSH_zk6gcI36jg/present?usp=sharing" target="_blank" rel="noopener noreferrer">Η απόδραση των Χριστουγέννων</a>
+            </div>
         </div>
     </div>
-</div>
 
     <!-- Διάφορα -->
     <div id="leftMiscModal" class="modal">
@@ -452,12 +481,12 @@
             <span class="close" onclick="closeModal('leftMiscModal')">&times;</span>
             <h3>Διάφορα</h3>
             <div class="modal-links">
-                <a href="https://pdomvros.github.io/love-hangman-gr/" target="_blank">Κρεμάλα της Αγάπης</a>
-                <a href="https://pdomvros.github.io/bullying-gr/" target="_blank">Δραστηριότητα για τον Εκφοβισμό</a>
-                <a href="https://pdomvros.github.io/bullying-eng/" target="_blank">Activity about Bullying</a>
-                <a href="https://pdomvros.github.io/final-exams/" target="_blank">Παρουσίαση των γραπτών εξετάσεων </a>
-                <a href="https://pdomvros.github.io/history-b-rev-t-f/" target="_blank">Επανάληψη Ιστορίας Β Γυμνασίου </a>
-                <a href="https://pdomvros.github.io/history-and-a-day/" target="_blank">History and a Day </a>
+                <a href="https://pdomvros.github.io/love-hangman-gr/" target="_blank" rel="noopener noreferrer">Κρεμάλα της Αγάπης</a>
+                <a href="https://pdomvros.github.io/bullying-gr/" target="_blank" rel="noopener noreferrer">Δραστηριότητα για τον Εκφοβισμό</a>
+                <a href="https://pdomvros.github.io/bullying-eng/" target="_blank" rel="noopener noreferrer">Activity about Bullying</a>
+                <a href="https://pdomvros.github.io/final-exams/" target="_blank" rel="noopener noreferrer">Παρουσίαση των γραπτών εξετάσεων</a>
+                <a href="https://pdomvros.github.io/history-b-rev-t-f/" target="_blank" rel="noopener noreferrer">Επανάληψη Ιστορίας Β Γυμνασίου</a>
+                <a href="https://pdomvros.github.io/history-and-a-day/" target="_blank" rel="noopener noreferrer">History and a Day</a>
             </div>
         </div>
     </div>
